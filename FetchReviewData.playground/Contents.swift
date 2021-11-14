@@ -19,15 +19,20 @@ struct ReviewManager {
     var reviews: [Review]
     
 }
+
 struct Review: Codable {
-    
     var rating: Int
     var title: String
     var version: String
     var content: String
 }
 
-func fetchReviewsV2(with url: String) async throws -> ([Review], String?)?  {
+
+/// Fetches Reviews given the proper URL
+/// - Parameter url: URL to perform the GET request
+/// - Throws: Throws a `ParsingError` or a `NetworkingError`
+/// - Returns: A tuple containing a list of reviews (sorted by most recent reviewss), and a string containing the next URL
+func fetchReviews(with url: String) async throws -> ([Review], String?)?  {
     let url = URL(string: url)!
     let (data, response) = try await URLSession.shared.data(from: url)
     guard let httpResponse = response as? HTTPURLResponse,
@@ -47,20 +52,11 @@ func fetchReviewsV2(with url: String) async throws -> ([Review], String?)?  {
     return (reviews, nextURL)
 }
 
-// V1 - Simple version
-func fetchReviews() async throws -> [Review] {
-    let url = URL(string: "https://itunes.apple.com/us/rss/customerreviews/id=398349296/sortby=mostrecent/json")!
-    let (data, response) = try await URLSession.shared.data(from: url)
-    guard let httpResponse = response as? HTTPURLResponse,
-          httpResponse.statusCode == 200
-    else { throw NetworkingError.badResponse }
-    let nextURL = try parseNextURL(data: data)
-    print("🔵 Next URL: \(nextURL ?? "NO URL")")
-    return try parse(data)
-}
-
+/// Parses the data objects into a list of review
+/// - Parameter data: The data returned from the server
+/// - Throws: Throws a `ParsingError` or a `NetworkingError`
+/// - Returns: A list of reviews
 func parse(_ data: Data) throws -> [Review] {
-    
     guard let rootJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
           let feed = rootJSON["feed"] as? [String: Any],
           let entry = feed["entry"] as? [[String: Any]]
@@ -72,8 +68,11 @@ func parse(_ data: Data) throws -> [Review] {
     return reviews
 }
 
+/// Parses the a single instance of a review from the proper JSON object
+/// - Parameter reviewJSON: The JSON object representing a single instance of a review
+/// - Throws: Throws a `ParsingError` or a `NetworkingError`
+/// - Returns: A single instance of a reivew
 func parse(reviewJSON: [String : Any]) throws -> Review {
-//    print(reviewJSON)
     guard let ratingJSON = reviewJSON["im:rating"] as? [String : Any],
           let ratingStr = ratingJSON["label"] as? String,
           let rating = Int(ratingStr)
@@ -94,6 +93,10 @@ func parse(reviewJSON: [String : Any]) throws -> Review {
     return Review(rating: rating, title: title, version: version, content: content)
 }
 
+/// Each call to get a list of reviews has a field in the JSON for fetching the next respective 50 reviews. This function parses the JSON to fetch that URL.
+/// - Parameter data: The data returned from the server
+/// - Throws: Throws a `ParsingError` or a `NetworkingError`
+/// - Returns: the next URL for fetch the next 50 reviews for an app
 func parseNextURL(data: Data) throws -> String? {
     var nextLinkURL: String?
     guard let rootJSON = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any],
@@ -117,7 +120,7 @@ Task {
         var allReviews: [Review] = []
         // We perform this due to pagination
         var url = "https://itunes.apple.com/us/rss/customerreviews/id=398349296/sortby=mostrecent/json"
-        while let (reviews, nextURL) = try await fetchReviewsV2(with: url) {
+        while let (reviews, nextURL) = try await fetchReviews(with: url) {
             allReviews.append(contentsOf: reviews)
             guard let newURL = nextURL, newURL != url else { break }
             url = newURL
