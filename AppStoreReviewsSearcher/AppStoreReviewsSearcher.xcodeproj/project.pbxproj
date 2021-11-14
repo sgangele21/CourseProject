@@ -17,6 +17,7 @@
 		76C01DB72740BFA80026A972 /* ReviewsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C01DB62740BFA80026A972 /* ReviewsFetcher.swift */; };
 		76C01DBA2740C02E0026A972 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C01DB92740C02E0026A972 /* Review.swift */; };
 		76C01DBC2740C4DF0026A972 /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C01DBB2740C4DF0026A972 /* URLExtensions.swift */; };
+		76C01DC12740D7FB0026A972 /* ReviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C01DC02740D7FB0026A972 /* ReviewView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,8 @@
 		76C01DB62740BFA80026A972 /* ReviewsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsFetcher.swift; sourceTree = "<group>"; };
 		76C01DB92740C02E0026A972 /* Review.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		76C01DBB2740C4DF0026A972 /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
+		76C01DC02740D7FB0026A972 /* ReviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewView.swift; sourceTree = "<group>"; };
+		76C01DC52740E8320026A972 /* ReviewsPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ReviewsPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,10 +103,11 @@
 		76C01D8A2740BDB00026A972 /* AppStoreReviewsSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				76C01DC42740E81A0026A972 /* Playground */,
+				76C01DBD2740D7790026A972 /* Views */,
 				76C01DB82740C0260026A972 /* Models */,
 				76C01DB52740BF930026A972 /* Helpers */,
 				76C01D8B2740BDB00026A972 /* AppStoreReviewsSearcherApp.swift */,
-				76C01D8D2740BDB00026A972 /* ContentView.swift */,
 				76C01D8F2740BDB20026A972 /* Assets.xcassets */,
 				76C01D912740BDB20026A972 /* Preview Content */,
 			);
@@ -150,6 +154,23 @@
 				76C01DB92740C02E0026A972 /* Review.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		76C01DBD2740D7790026A972 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76C01D8D2740BDB00026A972 /* ContentView.swift */,
+				76C01DC02740D7FB0026A972 /* ReviewView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		76C01DC42740E81A0026A972 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				76C01DC52740E8320026A972 /* ReviewsPlayground.playground */,
+			);
+			path = Playground;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,6 +307,7 @@
 				76C01DBA2740C02E0026A972 /* Review.swift in Sources */,
 				76C01DBC2740C4DF0026A972 /* URLExtensions.swift in Sources */,
 				76C01D8C2740BDB00026A972 /* AppStoreReviewsSearcherApp.swift in Sources */,
+				76C01DC12740D7FB0026A972 /* ReviewView.swift in Sources */,
 				76C01DB72740BFA80026A972 /* ReviewsFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

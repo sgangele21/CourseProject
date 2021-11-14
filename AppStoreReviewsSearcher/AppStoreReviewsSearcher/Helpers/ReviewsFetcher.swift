@@ -85,7 +85,7 @@ struct ReviewsFetcher {
               let title = titleJSON["label"] as? String
         else { throw ParsingError.titleParsingError }
         
-        guard let contentJSON = reviewJSON["title"] as? [String : Any],
+        guard let contentJSON = reviewJSON["content"] as? [String : Any],
               let content = contentJSON["label"] as? String
         else { throw ParsingError.contentParsingError }
         

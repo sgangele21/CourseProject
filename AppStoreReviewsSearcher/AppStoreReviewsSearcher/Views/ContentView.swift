@@ -9,20 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var reviews: [Review] = []
+    @State var reviews: [Review] = []
     @State private var query: String = ""
+    
     let reviewsFetcher = ReviewsFetcher()
     
     var body: some View {
-        VStack {
-            HStack {
-                TextField("Search App Store Reviews", text: $query, prompt: Text("Enter query here"))
-                Button("Search") {
-                    print("Searching for: \(query)")
+        List {
+            Section {
+                HStack {
+                    TextField("Search App Store Reviews", text: $query, prompt: Text("Enter query here"))
+                    Button("Search") {
+                        print("Searching for: \(query)")
+                    }
                 }
-            }.padding()
-            Spacer()
-        }.padding()
+            }
+            ForEach(reviews) { review in
+                ReviewView(review: review)
+                    .listRowInsets(EdgeInsets())
+            }
+        }
         .onAppear {
             Task {
                 do {
@@ -39,9 +45,8 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     
-    
-    
     static var previews: some View {
-        ContentView()
+        ContentView(reviews: Review.testReviews)
     }
+    
 }
