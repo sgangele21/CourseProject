@@ -2,6 +2,8 @@ import UIKit
 
 struct ReviewsFetcher {
     
+    private let dateFormatter = ISO8601DateFormatter()
+    
     enum NetworkingError: Error {
         case badResponse
     }
@@ -13,6 +15,7 @@ struct ReviewsFetcher {
         case titleParsingError
         case contentParsingError
         case nextURLParsingError
+        case dateParsingError
     }
     
     /// Gets the most recent 500 app store reviews for an app
@@ -89,7 +92,12 @@ struct ReviewsFetcher {
               let content = contentJSON["label"] as? String
         else { throw ParsingError.contentParsingError }
         
-        return Review(rating: rating, title: title, version: version, content: content)
+        guard let dateJSON = reviewJSON["updated"] as? [String: Any],
+              let dateString = dateJSON["label"] as? String,
+              let date = dateFormatter.date(from: dateString)
+        else { throw ParsingError.dateParsingError }
+        
+        return Review(rating: rating, title: title, version: version, content: content, date: date)
     }
 
     /// Each call to get a list of reviews has a field in the JSON for fetching the next respective 50 reviews. This function parses the JSON to fetch that URL.
