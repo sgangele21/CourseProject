@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State var reviews: [Review] = []
-    @State private var query: String = ""
+    @State var query: String = ""
     
     let reviewsFetcher = ReviewsFetcher()
     
@@ -18,26 +18,12 @@ struct ContentView: View {
         List {
             Section {
                 HStack {
-                    TextField("Search App Store Reviews", text: $query, prompt: Text("Enter query here"))
-                    Button("Search") {
-                        print("Searching for: \(query)")
-                    }
+                    SearchView(reviews: $reviews, query: $query)
                 }
             }
             ForEach(reviews) { review in
                 ReviewView(review: review)
                     .listRowInsets(EdgeInsets())
-            }
-        }
-        .onAppear {
-            Task {
-                do {
-                    reviews = try await reviewsFetcher.fetchAllReviews()
-                    print(reviews.count) // Prints 500
-                } catch(let error) {
-                    print("❌ Error fetching Reviews: \(error)")
-                }
-                
             }
         }
     }
