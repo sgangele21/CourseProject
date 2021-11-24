@@ -8,6 +8,13 @@ struct Review: Identifiable, Equatable {
     var version: String
     var content: String
     var date: Date
+    
+    var simpleDate: String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
 }
 
 extension Review {
