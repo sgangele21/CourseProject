@@ -11,7 +11,7 @@ struct ContentView: View {
     
     @State var reviews: [Review] = []
     @State var query: String = ""
-    @State var filterType: ReviewFilterer.FilterType = .last7Days
+    @State var filterType: ReviewFilterer.FilterType = .allTime
     
     var filteredReviews: [Review] {
         let reviewFilterer = ReviewFilterer(originalReviews: reviews)

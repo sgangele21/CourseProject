@@ -44,7 +44,7 @@ struct ReviewFilterer {
         case .lastYear:
             dayValueToAdd = -365
         case .allTime:
-            dayValueToAdd = 
+            dayValueToAdd = -3650
             
         }
         guard let fromDate = Calendar.current.date(byAdding: .day, value: dayValueToAdd, to: currentDate) else {
