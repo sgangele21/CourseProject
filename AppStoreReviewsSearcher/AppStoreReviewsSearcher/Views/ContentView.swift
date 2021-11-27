@@ -11,6 +11,12 @@ struct ContentView: View {
     
     @State var reviews: [Review] = []
     @State var query: String = ""
+    @State var filterType: ReviewFilterer.FilterType = .last7Days
+    
+    var filteredReviews: [Review] {
+        let reviewFilterer = ReviewFilterer(originalReviews: reviews)
+        return reviewFilterer.filterReviews(by: filterType)
+    }
     
     let reviewsFetcher = ReviewsFetcher()
     
@@ -20,8 +26,14 @@ struct ContentView: View {
                 HStack {
                     SearchView(reviews: $reviews, query: $query)
                 }
+                Picker("Filter Date", selection: $filterType) {
+                    ForEach(ReviewFilterer.FilterType.allCases) { filterType in
+                        Text(filterType.title).tag(filterType)
+                        
+                    }
+                }.pickerStyle(.segmented)
             }
-            ForEach(reviews) { review in
+            ForEach(filteredReviews) { review in
                 ReviewView(review: review)
                     .listRowInsets(EdgeInsets())
             }
