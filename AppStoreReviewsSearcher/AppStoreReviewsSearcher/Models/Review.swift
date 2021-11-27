@@ -1,6 +1,6 @@
 import UIKit
 /// Represents a users review of an app
-struct Review: Identifiable, Equatable {
+struct Review: Codable, Identifiable, Equatable {
     let id = UUID()
 
     var rating: Int

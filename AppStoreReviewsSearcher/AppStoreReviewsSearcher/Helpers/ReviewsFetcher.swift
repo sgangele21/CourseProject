@@ -3,7 +3,6 @@ import UIKit
 struct ReviewsFetcher {
     
     private let dateFormatter = ISO8601DateFormatter()
-    
     enum NetworkingError: Error {
         case badResponse
     }
@@ -21,6 +20,9 @@ struct ReviewsFetcher {
     /// Gets the most recent 500 app store reviews for an app
     /// - Returns: List of reviews  capped at a count of 500
     func fetchAllReviews() async throws -> [Review] {
+        if let cachedReviews = Cache.getReviews() {
+            return cachedReviews
+        }
         var allReviews: [Review] = []
         // We perform this due to pagination
         var url = URL.fetchAppStoreURL
@@ -29,6 +31,7 @@ struct ReviewsFetcher {
             guard let newURL = nextURL, newURL != url else { break }
             url = newURL
         }
+        Cache.put(reviews: allReviews)
         return allReviews
     }
     
