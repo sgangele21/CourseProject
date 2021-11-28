@@ -21,22 +21,25 @@ struct SearchView: View {
                     .progressViewStyle(CircularProgressViewStyle())
             } else {
                 Button("Search") {
-                    isLoading = true
-                    Task {
-                        do {
-                            let allReviews: [Review] = try await ReviewsFetcher().fetchAllReviews()
-                            let comparator = QueryComparator(reviews: allReviews, query: query)
-                            let sortedReviews = comparator.sortByMostSimlarReview()
-                            let reviewsCount = min(50, sortedReviews.count)
-                            reviews = Array(sortedReviews[0...reviewsCount])
-                            isLoading = false
-                        }catch(let error) {
-                            print("❌ Error: \(error)")
-                            isLoading = false
-                        }
-                        
-                    }
+                    fetchReviews()
                 }
+            }
+        }
+    }
+    
+    func fetchReviews() {
+        isLoading = true
+        Task(priority: .userInitiated) {
+            do {
+                let allReviews: [Review] = try await ReviewsFetcher().fetchAllReviews()
+                let comparator = QueryComparator(reviews: allReviews, query: query)
+                let sortedReviews = comparator.sortByMostSimlarReview()
+                let reviewsCount = min(50, sortedReviews.count)
+                reviews = Array(sortedReviews[0...reviewsCount])
+                isLoading = false
+            } catch(let error) {
+                print("❌ Error: \(error)")
+                isLoading = false
             }
         }
     }
