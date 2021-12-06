@@ -1,4 +1,4 @@
-import UIKit
+import AppKit
 /// Represents a users review of an app
 struct Review: Codable, Identifiable, Equatable {
     let id = UUID()

@@ -1,4 +1,4 @@
-import UIKit
+import AppKit
 
 struct ReviewsFetcher {
     
