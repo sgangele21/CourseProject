@@ -12,6 +12,7 @@ struct AppStoreReviewsSearcherApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .frame(minWidth: 600, maxWidth: .infinity, minHeight: 400, maxHeight: .infinity, alignment: .center)
         }
     }
 }

@@ -12,7 +12,7 @@ struct ContentView: View {
     @State var reviews: [Review] = []
     @State var query: String = ""
     @State var filterType: ReviewFilterer.FilterType = .allTime
-    
+    @State var isLoading: Bool = false
     var filteredReviews: [Review] {
         let reviewFilterer = ReviewFilterer(originalReviews: reviews)
         return reviewFilterer.filterReviews(by: filterType)
@@ -24,9 +24,9 @@ struct ContentView: View {
         List {
             Section {
                 HStack {
-                    SearchView(reviews: $reviews, query: $query)
+                    SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
                 }
-                Picker("Filter Date", selection: $filterType) {
+                Picker("", selection: $filterType) {
                     ForEach(ReviewFilterer.FilterType.allCases) { filterType in
                         Text(filterType.title).tag(filterType)
                         
@@ -38,6 +38,15 @@ struct ContentView: View {
                     .listRowInsets(EdgeInsets())
             }
         }
+        if isLoading {
+            VStack {
+                Spacer()
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                Spacer()
+            }
+        }
+        
     }
 }
 

@@ -11,19 +11,18 @@ struct SearchView: View {
     
     @Binding var reviews: [Review]
     @Binding var query: String
-    @State var isLoading: Bool = false
+    @Binding var isLoading: Bool
     
     var body: some View {
         HStack {
+            Text(Image(systemName: "magnifyingglass"))
             TextField("Search App Store Reviews", text: $query, prompt: Text("Enter query here"))
-            if isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-            } else {
-                Button("Search") {
+                .textFieldStyle(.roundedBorder)
+                .disableAutocorrection(true)
+                .onSubmit {
                     fetchReviews()
                 }
-            }
+            
         }
     }
     
@@ -49,8 +48,9 @@ struct SearchView_Previews: PreviewProvider {
     
     @State static var reviews: [Review] = []
     @State static var query: String = ""
+    @State static var isLoading: Bool = false
     
     static var previews: some View {
-        SearchView(reviews: $reviews, query: $query)
+        SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
     }
 }

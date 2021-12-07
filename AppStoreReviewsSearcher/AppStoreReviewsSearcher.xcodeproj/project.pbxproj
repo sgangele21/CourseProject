@@ -76,6 +76,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		766231DC275DD9B20034B4CD /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				76B0D4652752C0DD005BB482 /* Cache.swift */,
+				76C01DB62740BFA80026A972 /* ReviewsFetcher.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		766231DD275DD9C40034B4CD /* NLP */ = {
+			isa = PBXGroup;
+			children = (
+				76B0D45B274D582E005BB482 /* QueryComparator.swift */,
+			);
+			path = NLP;
+			sourceTree = "<group>";
+		};
 		76963E02275DC940003D2F74 /* AppStoreReviewSearcher-Mac */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +135,8 @@
 		76C01D8A2740BDB00026A972 /* AppStoreReviewsSearcher */ = {
 			isa = PBXGroup;
 			children = (
+				766231DD275DD9C40034B4CD /* NLP */,
+				766231DC275DD9B20034B4CD /* Networking */,
 				76C01DC42740E81A0026A972 /* Playground */,
 				76C01DBD2740D7790026A972 /* Views */,
 				76C01DB82740C0260026A972 /* Models */,
@@ -157,7 +176,7 @@
 		76C01DB52740BF930026A972 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				76C01DB62740BFA80026A972 /* ReviewsFetcher.swift */,
+				76B0D463274EA2FF005BB482 /* ReviewFilterer.swift */,
 				76C01DBB2740C4DF0026A972 /* URLExtensions.swift */,
 			);
 			path = Helpers;
@@ -167,10 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				76C01DB92740C02E0026A972 /* Review.swift */,
-				76B0D45B274D582E005BB482 /* QueryComparator.swift */,
 				76B0D45D274D5838005BB482 /* ReviewVector.swift */,
-				76B0D463274EA2FF005BB482 /* ReviewFilterer.swift */,
-				76B0D4652752C0DD005BB482 /* Cache.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
