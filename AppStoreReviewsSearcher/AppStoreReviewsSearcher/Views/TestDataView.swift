@@ -23,7 +23,12 @@ struct TestDataView: View {
             }
         }
         .navigationTitle("Test Data View")
-        .onReceive(Just(dataType)) { _ in
+        .onAppear(perform: {
+            Task {
+                await setReviews()
+            }
+        })
+        .onChange(of: Just(dataType)) { newValue in
             Task {
                 await setReviews()
             }
