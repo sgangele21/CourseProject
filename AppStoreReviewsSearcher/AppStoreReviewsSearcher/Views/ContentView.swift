@@ -49,6 +49,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: dataType.imageName)
                 }
+                .help("Select the type of data you want to use")
             }
         }
 
