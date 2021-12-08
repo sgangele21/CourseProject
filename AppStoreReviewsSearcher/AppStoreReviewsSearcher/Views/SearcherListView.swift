@@ -24,7 +24,7 @@ struct SearcherListView: View {
     
     var body: some View {
         List {
-            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
+            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading, dataType: $dataType)
             Picker("", selection: $filterType) {
                 ForEach(ReviewFilterer.FilterType.allCases) { filterType in
                     Text(filterType.title).tag(filterType)
