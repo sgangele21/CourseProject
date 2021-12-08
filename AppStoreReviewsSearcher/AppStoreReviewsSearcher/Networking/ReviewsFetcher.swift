@@ -3,6 +3,9 @@ import AppKit
 struct ReviewsFetcher {
     
     private let dateFormatter = ISO8601DateFormatter()
+    
+    var dataType: DataType = .live
+    
     enum NetworkingError: Error {
         case badResponse
     }
@@ -20,19 +23,25 @@ struct ReviewsFetcher {
     /// Gets the most recent 500 app store reviews for an app
     /// - Returns: List of reviews  capped at a count of 500
     func fetchAllReviews() async throws -> [Review] {
-        if let cachedReviews = Cache.getReviews() {
+        if dataType == .live, let cachedReviews = Cache.getReviews() {
             return cachedReviews
         }
-        var allReviews: [Review] = []
-        // We perform this due to pagination
-        var url = URL.fetchAppStoreURL
-        while let (reviews, nextURL) = try await fetchReviews(with: url) {
-            allReviews.append(contentsOf: reviews)
-            guard let newURL = nextURL, newURL != url else { break }
-            url = newURL
+        
+        // If the data type is not live, then retrieve the reviews
+        if dataType != .live {
+            return dataType.reviews
+        } else {
+            var allReviews: [Review] = []
+            // We perform this due to pagination
+            var url = URL.fetchAppStoreURL
+            while let (reviews, nextURL) = try await fetchReviews(with: url) {
+                allReviews.append(contentsOf: reviews)
+                guard let newURL = nextURL, newURL != url else { break }
+                url = newURL
+            }
+            Cache.put(reviews: allReviews)
+            return allReviews
         }
-        Cache.put(reviews: allReviews)
-        return allReviews
     }
     
     /// Fetches 50 reviews given the proper URL

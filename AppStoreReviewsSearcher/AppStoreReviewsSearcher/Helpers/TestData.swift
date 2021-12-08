@@ -19,7 +19,7 @@ enum DataType: Identifiable, CaseIterable {
         case .audioIssues:
             return "\"Audio Issues\" Data"
         case .wontLoad:
-            return "\"Love App\" Data"
+            return "\"Won't Load\" Data"
         case .live:
             return "\"Live\" Data"
         }
@@ -32,7 +32,7 @@ enum DataType: Identifiable, CaseIterable {
         case .audioIssues:
             return "airpodsmax"
         case .wontLoad:
-            return "heart"
+            return "wifi.exclamationmark"
         case .live:
             return "cloud"
         }

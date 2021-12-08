@@ -17,14 +17,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             List {
-                
                 NavigationLink(tag: screens[0], selection: $screenTitle) {
                     SearcherListView(dataType: $dataType)
                 } label: {
                     Label("Searcher", systemImage: "magnifyingglass")
                 }
                 NavigationLink(tag: screens[1], selection: $screenTitle) {
-                    Text("hello world")
+                    TestDataView(dataType: $dataType)
                 } label: {
                     Label("Test Data Viewer", systemImage: "list.bullet.rectangle")
                 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		766231DF275F154B0034B4CD /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766231DE275F154B0034B4CD /* TestData.swift */; };
 		766EF56E27604D7300369E06 /* SearcherListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766EF56D27604D7300369E06 /* SearcherListView.swift */; };
+		766EF57027605CE500369E06 /* TestDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766EF56F27605CE500369E06 /* TestDataView.swift */; };
 		76963E08275DC941003D2F74 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76963E07275DC941003D2F74 /* Assets.xcassets */; };
 		76963E0B275DC941003D2F74 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76963E0A275DC941003D2F74 /* Preview Assets.xcassets */; };
 		76963E11275DC95D003D2F74 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C01D8D2740BDB00026A972 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 		766231DE275F154B0034B4CD /* TestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestData.swift; sourceTree = "<group>"; };
 		766EF56C275F22F500369E06 /* ReviewsPlaygroundMac.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ReviewsPlaygroundMac.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		766EF56D27604D7300369E06 /* SearcherListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearcherListView.swift; sourceTree = "<group>"; };
+		766EF56F27605CE500369E06 /* TestDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDataView.swift; sourceTree = "<group>"; };
 		76963E01275DC940003D2F74 /* AppStoreReviewsSearcher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreReviewsSearcher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76963E07275DC941003D2F74 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76963E0A275DC941003D2F74 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				76B0D461274D5FA8005BB482 /* SearchView.swift */,
 				76C01DC02740D7FB0026A972 /* ReviewView.swift */,
 				766EF56D27604D7300369E06 /* SearcherListView.swift */,
+				766EF56F27605CE500369E06 /* TestDataView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				766EF57027605CE500369E06 /* TestDataView.swift in Sources */,
 				76963E16275DC967003D2F74 /* ReviewView.swift in Sources */,
 				76963E13275DC967003D2F74 /* AppStoreReviewsSearcherApp.swift in Sources */,
 				76963E18275DC967003D2F74 /* QueryComparator.swift in Sources */,
