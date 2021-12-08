@@ -24,14 +24,10 @@ struct TestDataView: View {
         }
         .navigationTitle("Test Data View")
         .onAppear(perform: {
-            Task {
-                await setReviews()
-            }
+            setReviews()
         })
         .onChange(of: Just(dataType)) { newValue in
-            Task {
-                await setReviews()
-            }
+            setReviews()
         }
         .toolbar {
             ToolbarItem(placement: .status) {
@@ -44,10 +40,16 @@ struct TestDataView: View {
         }
     }
     
-    func setReviews() async {
-        let reviewsFetcher = ReviewsFetcher(dataType: dataType)
-        if let reviews = try? await reviewsFetcher.fetchAllReviews() {
-            self.reviews = reviews
+    func setReviews() {
+        isLoading = true
+        Task {
+            do {
+                reviews = try await dataType.reviews
+                isLoading = false
+            } catch(let error) {
+                print("❌ Error: \(error)")
+                isLoading = false
+            }
         }
     }
 }

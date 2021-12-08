@@ -13,6 +13,7 @@ struct SearcherListView: View {
     @State var query: String = ""
     @State var filterType: ReviewFilterer.FilterType = .allTime
     @State var isLoading: Bool = false
+    @State var averagePrecision: String? = nil
     @Binding var dataType: DataType
     
     var filteredReviews: [Review] {
@@ -24,7 +25,7 @@ struct SearcherListView: View {
     
     var body: some View {
         List {
-            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading, dataType: $dataType)
+            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading, dataType: $dataType, averagePrecision: $averagePrecision)
             Picker("", selection: $filterType) {
                 ForEach(ReviewFilterer.FilterType.allCases) { filterType in
                     Text(filterType.title).tag(filterType)
@@ -44,6 +45,11 @@ struct SearcherListView: View {
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .scaleEffect(CGSize(width: 0.5, height: 0.5))
+                }
+            }
+            ToolbarItem(placement: .automatic) {
+                if let averagePrecision = averagePrecision {
+                    Text("Avg. Precision: \(averagePrecision)")
                 }
             }
         }

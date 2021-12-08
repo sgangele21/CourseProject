@@ -13,6 +13,7 @@ struct SearchView: View {
     @Binding var query: String
     @Binding var isLoading: Bool
     @Binding var dataType: DataType
+    @Binding var averagePrecision: String?
     
     var body: some View {
         HStack {
@@ -31,16 +32,30 @@ struct SearchView: View {
         isLoading = true
         Task(priority: .userInitiated) {
             do {
-                let allReviews: [Review] = try await ReviewsFetcher(dataType: dataType).fetchAllReviews()
+                let allReviews: [Review] = try await dataType.reviews
                 let comparator = QueryComparator(reviews: allReviews, query: query)
                 let sortedReviews = comparator.sortByMostSimlarReview()
                 let reviewsCount = min(50, sortedReviews.count - 1)
                 reviews = Array(sortedReviews[0...reviewsCount])
                 isLoading = false
+                displayAveragePrecision(for: reviews)
             } catch(let error) {
                 print("❌ Error: \(error)")
                 isLoading = false
             }
+        }
+    }
+    
+    func displayAveragePrecision(for currentRank: [Review]) {
+        Task {
+            guard let relevantDocuments = await dataType.relevanceDocuments,
+                  let rankEvaluator = RankEvaluator(relevantDocuments: relevantDocuments, currentRank: currentRank)
+            else {
+                averagePrecision = nil
+                return
+            }
+            let avgPrecisionStr = String(format: "%.2f", rankEvaluator.computeAveragePrecision())
+            averagePrecision = avgPrecisionStr
         }
     }
 }
@@ -51,8 +66,9 @@ struct SearchView_Previews: PreviewProvider {
     @State static var query: String = ""
     @State static var isLoading: Bool = false
     @State static var dataType: DataType = .wontLoad
+    @State static var averagePrecision: String? = nil
     
     static var previews: some View {
-        SearchView(reviews: $reviews, query: $query, isLoading: $isLoading, dataType: $dataType)
+        SearchView(reviews: $reviews, query: $query, isLoading: $isLoading, dataType: $dataType, averagePrecision: $averagePrecision)
     }
 }

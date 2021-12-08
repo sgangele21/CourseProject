@@ -1,6 +1,6 @@
 import AppKit
 /// Represents a users review of an app
-struct Review: Codable, Identifiable, Equatable {
+struct Review: Codable, Identifiable, Equatable, Hashable {
     var id: UUID {
         UUID()
     }

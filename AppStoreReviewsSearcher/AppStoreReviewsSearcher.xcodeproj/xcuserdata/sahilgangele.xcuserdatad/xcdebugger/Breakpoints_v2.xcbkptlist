@@ -103,69 +103,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "D56C75BC-AB66-40F9-8D72-3A4049413BD1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "AppStoreReviewsSearcher/Views/TestDataView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "D56C75BC-AB66-40F9-8D72-3A4049413BD1 - 6f3e837f980d9c03"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 @Sendable () async -&gt; () in closure #2 (AppStoreReviewsSearcher.DataType) -&gt; () in AppStoreReviewsSearcher.TestDataView.body.getter : some"
-                  moduleName = "AppStoreReviewsSearcher"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sahilgangele/Documents/School/TextInfoSys/Course_Project/CourseProject/AppStoreReviewsSearcher/AppStoreReviewsSearcher/Views/TestDataView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "96">
-               </Location>
-               <Location
-                  uuid = "D56C75BC-AB66-40F9-8D72-3A4049413BD1 - e7f3f34c25e7ffe3"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) await resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (AppStoreReviewsSearcher.DataType) -&gt; () in AppStoreReviewsSearcher.TestDataView.body.getter : some"
-                  moduleName = "AppStoreReviewsSearcher"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sahilgangele/Documents/School/TextInfoSys/Course_Project/CourseProject/AppStoreReviewsSearcher/AppStoreReviewsSearcher/Views/TestDataView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "36">
-               </Location>
-               <Location
-                  uuid = "D56C75BC-AB66-40F9-8D72-3A4049413BD1 - b096599094992337"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) suspend resume partial function for closure #1 @Sendable () async -&gt; () in closure #2 (AppStoreReviewsSearcher.DataType) -&gt; () in AppStoreReviewsSearcher.TestDataView.body.getter : some"
-                  moduleName = "AppStoreReviewsSearcher"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/sahilgangele/Documents/School/TextInfoSys/Course_Project/CourseProject/AppStoreReviewsSearcher/AppStoreReviewsSearcher/Views/TestDataView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "28"
-                  endingLineNumber = "28"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "74F65C90-BF33-480B-AB66-21B859831061"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -177,6 +114,22 @@
             endingLineNumber = "27"
             landmarkName = "body"
             landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BADA99D4-73DE-4C63-A391-C3B58A99E118"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppStoreReviewsSearcher/Helpers/TestData.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
+            landmarkName = "computeAveragePrecision()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
