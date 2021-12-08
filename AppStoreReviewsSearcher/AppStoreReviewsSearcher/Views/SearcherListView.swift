@@ -38,14 +38,16 @@ struct SearcherListView: View {
             }
         }
         .navigationTitle("Searcher")
-        if isLoading {
-            VStack {
-                Spacer()
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-                Spacer()
+        .toolbar {
+            ToolbarItem(placement: .status) {
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                        .scaleEffect(CGSize(width: 0.5, height: 0.5))
+                }
             }
         }
+        
     }
 }
 
