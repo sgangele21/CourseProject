@@ -9,34 +9,34 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var reviews: [Review] = []
-    @State var query: String = ""
-    @State var filterType: ReviewFilterer.FilterType = .allTime
-    @State var isLoading: Bool = false
-    @State var dataType: DataType = .live
-    var filteredReviews: [Review] {
-        let reviewFilterer = ReviewFilterer(originalReviews: reviews)
-        return reviewFilterer.filterReviews(by: filterType)
-    }
+    let screens = ["Searcher", "Test Data Viewer"]
     
-    let reviewsFetcher = ReviewsFetcher()
+    @State var dataType: DataType = .live
+    @State var screenTitle: String? = "Searcher"
     
     var body: some View {
-        List {
-            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
-            Picker("", selection: $filterType) {
-                ForEach(ReviewFilterer.FilterType.allCases) { filterType in
-                    Text(filterType.title).tag(filterType)
-                    
+        NavigationView {
+            List {
+                
+                NavigationLink(tag: screens[0], selection: $screenTitle) {
+                    SearcherListView(dataType: $dataType)
+                } label: {
+                    Label("Searcher", systemImage: "magnifyingglass")
                 }
-            }.pickerStyle(.segmented)
-            ForEach(filteredReviews) { review in
-                ReviewView(review: review)
-                    .listRowInsets(EdgeInsets())
-                Divider()
+                NavigationLink(tag: screens[1], selection: $screenTitle) {
+                    Text("hello world")
+                } label: {
+                    Label("Text Data Viewer", systemImage: "list.bullet.rectangle")
+                }
             }
+            .listStyle(.sidebar)
         }
         .toolbar {
+            ToolbarItem(placement: .navigation) {
+                Button(action: toggleSidebar, label: {
+                    Image(systemName: "sidebar.leading")
+                })
+            }
             ToolbarItemGroup(placement: .primaryAction) {
               Menu {
                   ForEach(DataType.allCases, id: \.self) { testData in
@@ -51,24 +51,19 @@ struct ContentView: View {
                     Image(systemName: dataType.imageName)
                 }
             }
-         }
-        .navigationTitle("Searcher")
-        if isLoading {
-            VStack {
-                Spacer()
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle())
-                Spacer()
-            }
         }
-        
+
+    }
+    
+    func toggleSidebar() {
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ContentView(reviews: Review.testReviews)
+        ContentView()
     }
     
 }
