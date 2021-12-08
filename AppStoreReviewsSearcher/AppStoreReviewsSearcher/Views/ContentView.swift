@@ -26,7 +26,7 @@ struct ContentView: View {
                 NavigationLink(tag: screens[1], selection: $screenTitle) {
                     Text("hello world")
                 } label: {
-                    Label("Text Data Viewer", systemImage: "list.bullet.rectangle")
+                    Label("Test Data Viewer", systemImage: "list.bullet.rectangle")
                 }
             }
             .listStyle(.sidebar)
