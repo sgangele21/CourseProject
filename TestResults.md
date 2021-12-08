@@ -70,3 +70,7 @@ The query I'll choose to use is "Won't Load"
 **Outcome:**
 - Average Precision was 0.80
 - This precision was good! Even reviews such has "App Loads too quickly!" were ranked low (7th). It's good to know that Apple can use small but key differentiating words to influence their similarities.
+
+# Mean Average Precision
+MAP is 0.76. Apple's Natural Langauge Framework in totality performs decently on these sets of queries and datasets. However, this test is on comprehensive. There is a lot of more queries and datasets that can be used to evaluate this framework. 
+A key in this test is that I only use the title of a review to compare a query to reviews. I could improve the accuracy by combining both the title and the content of the review, and comparing that with the query. However, this is very computationally expensive, especially as some reviews can be as large as paragraphs.
