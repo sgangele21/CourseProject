@@ -1,20 +1,40 @@
 import AppKit
 
-enum TestData {
+enum DataType: Identifiable, CaseIterable {
+    
+    var id: UUID {
+        UUID()
+    }
     
     case worstAppEver
     case audioIssues
     case wontLoad
+    case live
     
     
     var title: String {
         switch self {
         case .worstAppEver:
-            return "Worst App Ever"
+            return "\"Worst App Ever\" Data"
         case .audioIssues:
-            return "Audio Issues"
+            return "\"Audio Issues\" Data"
         case .wontLoad:
-            return "Love App"
+            return "\"Love App\" Data"
+        case .live:
+            return "\"Live\" Data"
+        }
+    }
+    
+    var imageName: String {
+        switch self {
+        case .worstAppEver:
+            return "xmark.octagon"
+        case .audioIssues:
+            return "airpodsmax"
+        case .wontLoad:
+            return "heart"
+        case .live:
+            return "cloud"
         }
     }
     
@@ -26,7 +46,13 @@ enum TestData {
             return audioIssuesTestReviews()
         case .wontLoad:
             return wontLoadTestReviews()
+        case .live:
+            return liveData()
         }
+    }
+    
+    func liveData() -> [Review] {
+        []
     }
     
     func wontLoadTestReviews() -> [Review] {

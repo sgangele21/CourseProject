@@ -13,6 +13,7 @@ struct ContentView: View {
     @State var query: String = ""
     @State var filterType: ReviewFilterer.FilterType = .allTime
     @State var isLoading: Bool = false
+    @State var dataType: DataType = .live
     var filteredReviews: [Review] {
         let reviewFilterer = ReviewFilterer(originalReviews: reviews)
         return reviewFilterer.filterReviews(by: filterType)
@@ -22,22 +23,36 @@ struct ContentView: View {
     
     var body: some View {
         List {
-            Section {
-                HStack {
-                    SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
+            SearchView(reviews: $reviews, query: $query, isLoading: $isLoading)
+            Picker("", selection: $filterType) {
+                ForEach(ReviewFilterer.FilterType.allCases) { filterType in
+                    Text(filterType.title).tag(filterType)
+                    
                 }
-                Picker("", selection: $filterType) {
-                    ForEach(ReviewFilterer.FilterType.allCases) { filterType in
-                        Text(filterType.title).tag(filterType)
-                        
-                    }
-                }.pickerStyle(.segmented)
-            }
+            }.pickerStyle(.segmented)
             ForEach(filteredReviews) { review in
                 ReviewView(review: review)
                     .listRowInsets(EdgeInsets())
+                Divider()
             }
         }
+        .toolbar {
+            ToolbarItemGroup(placement: .primaryAction) {
+              Menu {
+                  ForEach(DataType.allCases, id: \.self) { testData in
+                      Button {
+                          self.dataType = testData
+                      } label: {
+                          Image(systemName: testData.imageName)
+                          Text("\(testData.title)")
+                      }
+                  }
+                } label: {
+                    Image(systemName: dataType.imageName)
+                }
+            }
+         }
+        .navigationTitle("Searcher")
         if isLoading {
             VStack {
                 Spacer()
