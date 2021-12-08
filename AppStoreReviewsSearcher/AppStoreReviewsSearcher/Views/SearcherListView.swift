@@ -49,7 +49,13 @@ struct SearcherListView: View {
             }
             ToolbarItem(placement: .automatic) {
                 if let averagePrecision = averagePrecision {
-                    Text("Avg. Precision: \(averagePrecision)")
+                    VStack {
+                        Text("Avg. Precision")
+                            .font(.callout)
+                        Text("\(averagePrecision)")
+                            .font(.system(size: 10, design: .monospaced))
+                    }
+                    
                 }
             }
         }
