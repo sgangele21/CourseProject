@@ -3,7 +3,7 @@
 ## An overview of the function of the code (i.e., what it does and what it can be used for). 
 
 ### Goal
-This is a macOS app to allow users to intelligently query / search their iOS App Store Reviews and display the results of the reviews in a ranked order by order of relevance of Review to query.
+This is a macOS app to allow users to intelligently query / search their iOS App Store Reviews and display the results of the reviews in an ordering based on the relevance of Review to query.
 
 ### Function
 The user can query on various types of datasets containing lists of reviews, ranging from 3 mocked datasets created by me (“Worst App Ever” data, “Audio Issues” data, and “Won’t Load” data) to a “Live” data set that will fetch the 500 latest reviews for a particular app (right now the app is hardcoded to 1 particular app from the App Store) using the iTunes API.
@@ -13,21 +13,21 @@ The user can also view these datasets alone, to simply observe them in their tru
 ### User Interface
 There are two main parts to this app
 1. Searcher Screen
-2. Test Data View Screen
+2. Test Data Viewer Screen
 
 The Searcher Screen allows a user to query the various datasets, and compare the reviews to the query. Once this comparison is done, this screen will display all the reviews in the data set  in a ranked list where the review at the top of the list is the most similar to the query, and the last review in the list is the least similar.
 
-The Test Data View Screen is more of a helper screen to allow one to simply view the datasets in their purest form. If you select the “Live” data set, then you’ll be able to see all 500 reviews of the live data in order. If you select any other data set, you’ll be able to view the mocked data I’ve created.
+The Test Data Viewer Screen is more of a helper screen to allow one to simply view the datasets in their purest form. If you select the “Live” data set, then you’ll be able to see all 500 reviews of the live data in order. If you select any other data set, you’ll be able to view the mocked data I’ve created.
 
 ### What it can be used for
-Working in the iOS App Industry, source of feedback on your app is very important, as it helps you refine your software to be better for the end users. However, when looking at the feedback, there are times you want to simply search for certain issues pertaining to your app. Whether it be “Loading Issues” or “Audio Issues” etc. This feature is missing from AppStoreConnect.com, and slows down a developers progress in helping refine their app based on users feedback. Especially with larger apps, you can have up to thousands of user reviews. Having a system to query these results intelligently and display the reviews most related to the query is useful for developers, product managers and businesses that create iOS applications.
+Working in the iOS App Industry, any source of feedback on your app is very important, as it helps you refine your software to be better for the end users. The main source of feedback comes from the App Store "Ratings & Reviews" section. However, when looking at the feedback, there are times you want to simply search for certain issues pertaining to your app. Whether it be “Loading Issues” or “Audio Issues” etc. This feature is missing from AppStoreConnect.com, and slows down a developers progress in helping refine their app based on users feedback. Especially with larger apps, you can have up to thousands of user reviews. Having a system to query these results intelligently and display the reviews most related to the query is useful for developers, product managers and businesses that create iOS applications.
 
 ## Documentation of how the software is implemented with sufficient detail so that others can have a basic understanding of your code for future extension or any further improvement. 
 
 ### Tech Stack
 * The macOS app is written in Swift 5 and utilizes SwiftUI for the UI Framework
 * To build the app, I used Xcode 13 as the IDE
-* The app runs on macOS 12 (Monterey) only. It does not support previous version of macOS as this utilizes new SwiftUI functionality that is only available on macOS 12
+* The app runs on macOS 12 (Monterey) only. It does not support previous versions of macOS as this utilizes new SwiftUI functionality that is only available on macOS 12
 * To build the icons, Sketch was used
 * No 3rd party libraries were used
 
@@ -43,7 +43,7 @@ This folder contains all NLP related files.
 #### Networking
 This folder contains all Networking related files.
 
-`Cache`: Used to speed up network requests when fetching user reviews data. The persistence store of the cache is [UserDefaults](used to speed up network requests when fetching user reviews data)
+`Cache`: Used to speed up network requests when fetching user reviews data. The persistence store of the cache is [UserDefaults](https://developer.apple.com/documentation/foundation/userdefaults) used to speed up network requests when fetching user reviews data
 
 `ReviewsFetcher`: Allows one to make a network request to the iTunes API to at least 500 user reviews for an app. The [iTunes API](https://developer.apple.com/library/archive/documentation/AudioVideo/Conceptual/iTuneSearchAPI/index.html) is a public API made available by Apple.
 
