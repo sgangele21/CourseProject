@@ -46,7 +46,6 @@
 		76B0D4652752C0DD005BB482 /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		76C01D8B2740BDB00026A972 /* AppStoreReviewsSearcherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewsSearcherApp.swift; sourceTree = "<group>"; };
 		76C01D8D2740BDB00026A972 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		76C01D8F2740BDB20026A972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76C01D922740BDB20026A972 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		76C01D982740BDB20026A972 /* AppStoreReviewsSearcherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreReviewsSearcherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76C01D9C2740BDB20026A972 /* AppStoreReviewsSearcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreReviewsSearcherTests.swift; sourceTree = "<group>"; };
@@ -151,7 +150,6 @@
 				76C01DB82740C0260026A972 /* Models */,
 				76C01DB52740BF930026A972 /* Helpers */,
 				76C01D8B2740BDB00026A972 /* AppStoreReviewsSearcherApp.swift */,
-				76C01D8F2740BDB20026A972 /* Assets.xcassets */,
 				76C01D912740BDB20026A972 /* Preview Content */,
 			);
 			path = AppStoreReviewsSearcher;
