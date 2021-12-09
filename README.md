@@ -99,6 +99,8 @@ Requirements of computer
 	* If any dialogue appears saying “Do you want to open this app…?” Simply allow the app to be opened. I’ve had the app notarized by Apple, so it’s available for distribution to any other Mac
 5. Start using it!
 
+Alternatively, you could navigate to the AppStoreReviewsSearcher directory and open up the `AppStoreReviewsSearcher.xcodeproj` file. Then, simply click CMD + r to run the app natively on your Mac. This file contains all the source code needed for the app.
+
 Here’s a run down of all the components in the app:
 
 | After Launch | Searcher Screen | Test Data Viewer |
