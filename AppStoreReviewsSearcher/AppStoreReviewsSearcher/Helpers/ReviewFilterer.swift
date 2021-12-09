@@ -1,4 +1,6 @@
 import Foundation
+
+/// This is helper struct for filtering reviews based on the date they were written
 struct ReviewFilterer {
     enum FilterType: Int, Identifiable, CaseIterable {
         var id: UUID {

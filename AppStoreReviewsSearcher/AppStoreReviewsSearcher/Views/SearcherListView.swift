@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+/// This is the most important view in the app.
+/// It contains the view `SearchView` and displays the list of Reviews
+/// It also contains a filtering logic to filter reviews based on the date they were written
+/// Lastly, it contains the label in the top right corner to display the Average Precision for test data
 struct SearcherListView: View {
     
     @State var reviews: [Review] = []

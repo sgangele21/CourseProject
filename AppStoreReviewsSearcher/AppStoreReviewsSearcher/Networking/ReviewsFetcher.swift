@@ -1,5 +1,6 @@
 import AppKit
 
+/// Allows one to make a network request to the iTunes API to at least 500 user reviews for an app.
 struct ReviewsFetcher {
     
     private let dateFormatter = ISO8601DateFormatter()

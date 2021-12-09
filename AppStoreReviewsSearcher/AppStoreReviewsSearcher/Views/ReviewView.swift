@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// This is the view that represents a Review object. It contains a title, rating, version number, and content
 struct ReviewView: View {
     let review: Review
     var body: some View {

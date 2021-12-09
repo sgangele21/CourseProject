@@ -1,4 +1,6 @@
 import Foundation
+
+/// Cache used to speed up network requests when fetching user reviews data
 enum Cache {
     
     enum Key: String {

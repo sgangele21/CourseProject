@@ -8,6 +8,9 @@
 import SwiftUI
 import Combine
 
+/// This is a view created in order to view all the test data in the app, in their perfect form
+/// The test data is shown in the right form. The top 5 of each of the lists are the relevant documents. The bottom five are not relevant.
+/// You can also view the Live Data, which is fetched from a server and is live user data.
 struct TestDataView: View {
     
     @State var reviews: [Review] = []

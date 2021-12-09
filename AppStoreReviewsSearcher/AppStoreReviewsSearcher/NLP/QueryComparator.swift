@@ -1,6 +1,6 @@
 import NaturalLanguage
 
-/// Compares a list of revies to a given query string
+/// Compares a list of reviews to a given query string
 struct QueryComparator {
     let reviews: [Review]
     let query: String

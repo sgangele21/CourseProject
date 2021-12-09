@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Main view of the app that contains the Sidebar and navigational links to the Searcher Screen & the Test Data Viewer Screen
 struct ContentView: View {
     
     let screens = ["Searcher", "Test Data Viewer"]

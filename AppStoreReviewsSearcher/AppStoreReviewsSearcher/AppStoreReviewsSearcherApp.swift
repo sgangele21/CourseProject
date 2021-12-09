@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// This is the main view of the app that represnts the window
 @main
 struct AppStoreReviewsSearcherApp: App {
     var body: some Scene {

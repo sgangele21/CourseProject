@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// This is the view that contains the UI and logic for the search text field, and fetching the reviews, and passing them back to the `SearcherListView`
+/// This view also passes back the data relating to the Average Precision
 struct SearchView: View {
     
     @Binding var reviews: [Review]
