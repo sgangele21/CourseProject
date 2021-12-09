@@ -1,14 +1,21 @@
 import AppKit
 
+/// This represents the type of data currently being used in the app.
+/// It's either one of the three mocked data sets (worstAppEver, audioIssues, wontLoad) or
+/// it's the live data type which fetches a list of reviews from the server.
 enum DataType: Identifiable, CaseIterable {
     
     var id: UUID {
         UUID()
     }
     
+    /// This is for a set of mocked reviews centered around the theme "Worst App Ever"
     case worstAppEver
+    /// This is for a set of mocked reviews centered around the theme "Audio Issues"
     case audioIssues
+    /// This is for a set of mocked reviews centered around the theme "Won't Load"
     case wontLoad
+    /// This is for a set of reviews containing, at maximum, 500 user inputted reviews fetched from a particular app
     case live
     
     

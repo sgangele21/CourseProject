@@ -96,6 +96,7 @@
 		766231DD275DD9C40034B4CD /* NLP */ = {
 			isa = PBXGroup;
 			children = (
+				766EF5712761A87400369E06 /* RankEvaluator.swift */,
 				76B0D45B274D582E005BB482 /* QueryComparator.swift */,
 			);
 			path = NLP;
@@ -186,8 +187,6 @@
 			children = (
 				76B0D463274EA2FF005BB482 /* ReviewFilterer.swift */,
 				76C01DBB2740C4DF0026A972 /* URLExtensions.swift */,
-				766231DE275F154B0034B4CD /* TestData.swift */,
-				766EF5712761A87400369E06 /* RankEvaluator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -195,6 +194,7 @@
 		76C01DB82740C0260026A972 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				766231DE275F154B0034B4CD /* TestData.swift */,
 				76C01DB92740C02E0026A972 /* Review.swift */,
 				76B0D45D274D5838005BB482 /* ReviewVector.swift */,
 			);

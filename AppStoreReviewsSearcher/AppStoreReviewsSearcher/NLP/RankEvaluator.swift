@@ -1,4 +1,4 @@
-/// This evalutates a rank given a set of relevant documents.
+/// This evaluates a rank given a set of relevant documents.
 /// The purpose of this is the compute the average precision of a rank given it's relevant document set
 struct RankEvaluator {
     
