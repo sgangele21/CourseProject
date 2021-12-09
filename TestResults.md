@@ -58,7 +58,7 @@ The query I'll choose to use is "Audio Issues"
 
 **Outcome:**
 - Average Precision was 0.76
-- This was lower than what was predicted. For reviews such as "Can't hear anything" & "Having trouble with noise" Apple natural language framework wasn't able to rank these high compared to reviews such as "Best App Ever". The reviews in this data set are a bit tricky, so I'm not surprised it's tricking Apple's framework. Reviews like "Volume Bugs" (Ranked 5th) is hard to decipher because of word ambiguity. "Bugs" here is referring software issues, not insects.
+- This was lower than what was predicted. For reviews such as "Can't hear anything" & "Having trouble with noise" Apple's Natural Language Framework wasn't able to rank these high compared to reviews such as "Best App Ever". The reviews in this data set are a bit tricky, so I'm not surprised it's tricking Apple's framework. Reviews like "Volume Bugs" (Ranked 5th) is hard to decipher because of word ambiguity. "Bugs" here is referring software issues, not insects.
 
 # Test 3
 I'll use the data set **"Won't Load"**
@@ -72,7 +72,7 @@ The query I'll choose to use is "Won't Load"
 - This precision was good! Even reviews such has "App Loads too quickly!" were ranked low (7th). It's good to know that Apple can use small but key differentiating words to influence their similarities.
 
 # Mean Average Precision
-MAP is 0.76. Apple's Natural Langauge Framework in totality performs decently on these sets of queries and datasets. However, this test is on comprehensive. There is a lot of more queries and datasets that can be used to evaluate this framework. 
+MAP is 0.76. Apple's Natural Langauge Framework in totality performs decently on these sets of queries and datasets. However, this test is not comprehensive. There is a lot of more queries and datasets that can be used to evaluate this framework. 
 A key in this test is that I only use the title of a review to compare a query to reviews. I could improve the accuracy by combining both the title and the content of the review, and comparing that with the query. However, this is very computationally expensive, especially as some reviews can be as large as paragraphs.
 
 # Self Evaluation
