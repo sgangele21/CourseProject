@@ -6,7 +6,7 @@ struct QueryComparator {
     let query: String
     static let sentenceEmbedding = NLEmbedding.sentenceEmbedding(for: .english)!
     
-    func sortByMostSimlarReview() -> [Review] {
+    func sortByMostSimilarReview() -> [Review] {
         let reviewVectors = reviews.compactMap { review -> ReviewVector? in
             let distance = QueryComparator.sentenceEmbedding.distance(between: review.title, and: query)
             return ReviewVector(review: review, distance: distance)

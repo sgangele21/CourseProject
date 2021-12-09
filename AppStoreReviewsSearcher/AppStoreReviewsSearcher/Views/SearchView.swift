@@ -40,7 +40,7 @@ struct SearchView: View {
                 guard query.isEmpty == false else { return }
                 let allReviews: [Review] = try await dataType.reviews
                 let comparator = QueryComparator(reviews: allReviews, query: query)
-                let sortedReviews = comparator.sortByMostSimlarReview()
+                let sortedReviews = comparator.sortByMostSimilarReview()
                 let reviewsCount = min(50, sortedReviews.count - 1)
                 reviews = Array(sortedReviews[0...reviewsCount])
                 displayAveragePrecision(for: reviews)
