@@ -25,7 +25,7 @@ struct TestDataView: View {
                 Divider()
             }
         }
-        .navigationTitle("Test Data View")
+        .navigationTitle("Test Data Viewer")
         .onAppear(perform: {
             setReviews()
         })
