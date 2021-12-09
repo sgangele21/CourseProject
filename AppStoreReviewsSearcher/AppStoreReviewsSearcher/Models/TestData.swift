@@ -82,9 +82,9 @@ enum DataType: Identifiable, CaseIterable {
          Review(rating: 2, title: "Problems with loading", version: "4.0.0", content: "I cannot playback any videos. All I get is a loading screen.", date: Date()),
          Review(rating: 5, title: "Loading times are much improved!", version: "5.4.0", content: "Thank you for fixing the slow loading times of the app.", date: Date()),
          Review(rating: 5, title: "App loads too quickly!", version: "6.1.0", content: "Wow, this app is now blazing fast! Thank you for updating it!", date: Date()),
-         Review(rating: 1, title: "Fast app!", version: "5.2.0", content: "This app is much faster than Netflix, which is why I love it so much!", date: Date()),
+         Review(rating: 4, title: "Fast app!", version: "5.2.0", content: "This app is much faster than Netflix, which is why I love it so much!", date: Date()),
          Review(rating: 1, title: "App is too expensive", version: "5.6.0", content: "Please lower the cost of this app or swtich to a Pay-Once model instead of a subscription model", date: Date()),
-         Review(rating: 1, title: "App is #1", version: "5.2.0", content: "I'm a huge fan of this app. Keep pushing out great updates devs! You rock!", date: Date()),
+         Review(rating: 5, title: "App is #1", version: "5.2.0", content: "I'm a huge fan of this app. Keep pushing out great updates devs! You rock!", date: Date()),
         ]
     
     static let audioIssuesTestReviews: [Review] =
