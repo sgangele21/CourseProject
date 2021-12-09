@@ -2,7 +2,7 @@
 
 This is my project centered around creating a smart text retrieval system for app store reviews.
 
-Link to video [here](https://mediaspace.illinois.edu/media/t/1_r2s0eeie)
+Link to video [here](https://mediaspace.illinois.edu/media/t/1_r0q91ifh)
 
 **Source Code:** In `AppStoreReviewsSearcher` folder
 
