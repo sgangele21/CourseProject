@@ -1,5 +1,5 @@
 # Background
-Our app currently takes a query, and a list of reviews, and tries present a ranked list of the reviews (top being most similar) to the user. However, how do we know whether the query is perform well?
+Our app currently takes a query, and a list of reviews, and tries present a ranked list of the reviews, with the top being most similar to the query. However, how do we know whether this query system is performing well?
 
 To automate this process would be have been very laborious, so instead I opted for using the Cranfield Methodology of testing, which is fairly manual.
 
@@ -74,3 +74,6 @@ The query I'll choose to use is "Won't Load"
 # Mean Average Precision
 MAP is 0.76. Apple's Natural Langauge Framework in totality performs decently on these sets of queries and datasets. However, this test is on comprehensive. There is a lot of more queries and datasets that can be used to evaluate this framework. 
 A key in this test is that I only use the title of a review to compare a query to reviews. I could improve the accuracy by combining both the title and the content of the review, and comparing that with the query. However, this is very computationally expensive, especially as some reviews can be as large as paragraphs.
+
+# Self Evaluation
+The outcome of the project was expected, in that I was hoping for a query system of reviews that had a decent accuracy, a Mean Average Precision of around 0.8. And this was ultimately true based on the test results. The query system won't be 100% accurate because of the nuances in language that I've shown in the above test results. Even Apple's framework had a tough job doing thus. However, do note that Apple's Natural Langauage Framework is an embedded framework, meaning all NLP tasks are done on-device and not in the cloud. This makes the results really fast, however accuracy then does tend to take a hit because you can only store so much knowledge for NLP tasks on a memory constrained device.
